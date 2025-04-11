@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "ForwardR",
+    "version": "1.1",
+    "description": "Right-click a link to send it to a configurable server",
+    "permissions": ["contextMenus", "storage", "notifications"],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "options_page": "popup.html",
+    "icons": {
+      "128": "icon.png"
+    }
+  }
+  
