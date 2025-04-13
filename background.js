@@ -19,7 +19,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     if (info.menuItemId === "sendToTorrents") {
       chrome.storage.sync.get(["baseUrl"], (data) => {
         const baseUrl = data.baseUrl || "http://localhost:3000";
-        const linkUrl = encodeURIComponent(info.linkUrl);
+        const linkUrl = encodeURIComponent(btoa(info.linkUrl));
         const fullUrl = `${baseUrl}/download?url=${linkUrl}`;
         console.log("URLDownloader: URL is being sent to: ", fullUrl)
         fetch(fullUrl)
@@ -53,7 +53,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     if(info.menuItemId === "sendToPrivate") {
       chrome.storage.sync.get(["baseUrl"], (data) => {
         const baseUrl = data.baseUrl || "http://localhost:3000";
-        const linkUrl = encodeURIComponent(info.linkUrl);
+        const linkUrl = encodeURIComponent(btoa(info.linkUrl));
         const fullUrl = `${baseUrl}/download/private?url=${linkUrl}`;
         console.log("URLDownloader: URL is being sent to: ", fullUrl)
         fetch(fullUrl)
